@@ -15,7 +15,7 @@
 <meta property="og:description" content="这算是自己的第一篇正式的博客，在这条不归路上积累下去。
 本篇博客只是对Activity的跳转等简单操作做测试，主要是初步了解Robolectric的使用方法，以及AssertJ的各种使用。（因为JUnit的Assert功能不是很强，Api感觉很烂，所以在这里使用推荐的AssertJ）">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1432250-8de1892b5c9ba74b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-05-31T08:35:03.092Z">
+<meta property="og:updated_time" content="2016-05-31T08:52:33.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android单元测试框架Robolectric3.0的使用以及断言（AssertJ）的使用">
 <meta name="twitter:description" content="这算是自己的第一篇正式的博客，在这条不归路上积累下去。
@@ -83,7 +83,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android测试/" style="font-size: 10px;">Android测试</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
 					</div>
 				</section>
 				
@@ -236,7 +236,7 @@
 <blockquote>
 <p>本篇博客主要是参考：<br><a href="http://www.jianshu.com/p/9d988a2f8ff7?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo@" target="_blank" rel="external"> Android单元测试框架Robolectric3.0介绍(一)</a>之后自己做的小练习，以及AssertJ的使用 <a href="http://www.tuicool.com/articles/iIF3Ev" target="_blank" rel="external">JUnit 单元测试断言推荐 AssertJ</a>。</p>
 </blockquote>
-<p>##一、关于Robolectric3.0<br>借鉴  <a href="http://www.jianshu.com/p/9d988a2f8ff7?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo@" target="_blank" rel="external"> Android单元测试框架Robolectric3.0介绍(一)</a>的关于Robolectric3.0的介绍</p>
+<h2 id="一、关于Robolectric3-0"><a href="#一、关于Robolectric3-0" class="headerlink" title="一、关于Robolectric3.0"></a>一、关于Robolectric3.0</h2><p>借鉴  <a href="http://www.jianshu.com/p/9d988a2f8ff7?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo@" target="_blank" rel="external"> Android单元测试框架Robolectric3.0介绍(一)</a>的关于Robolectric3.0的介绍</p>
 <p>作为一个软件开发攻城狮，无论你多不屑多排斥单元测试，它都是一种非常好的开发方式，且不谈TDD，为自己写的代码负责，测试自己写的代码，在自己力所能及的范围内提高产品的质量，本是理所当然的事情。</p>
 <p>那么如何测试自己写的代码？点点界面，测测功能固然是一种方式，但是如果能留下一段一劳永逸的测试代码，让代码测试代码，岂不两全其美？所以，写好单元测试，爱惜自己的代码，爱惜颜值高的QA妹纸，爱惜有价值的产品（没价值的、政治性的、屁股决定脑袋的产品滚粗），人人有责！</p>
 <p>对于Android app来说，写起单元测试来瞻前顾后，一方面单元测试需要运行在模拟器上或者真机上，麻烦而且缓慢，另一方面，一些依赖Android SDK的对象（如Activity，TextView等）的测试非常头疼，Robolectric可以解决此类问题，它的设计思路便是通过实现一套JVM能运行的Android代码，从而做到脱离Android环境进行测试。本文对Robolectric3.0做了简单介绍，并列举了如何对Android的组件和常见功能进行测试的示例。</p>
@@ -259,6 +259,15 @@ testCompile &quot;org.assertj:assertj-core:1.7.0&quot;</code></p>
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/08/Android单元测试-Mockito的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android单元测试-Mockito的使用
+        
+      </div>
+    </a>
   
   
     <a href="/2016/05/03/我的第一篇文章/" id="article-nav-older" class="article-nav-link-wrap">
